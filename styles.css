@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+  background-color: skyblue;
+}
+
+button {
+  font-size: 64px;
+  color: white;
+  width: 20%;
+  background-color: navy;
+}
