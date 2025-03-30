@@ -1,36 +1,15 @@
 // GET computer choice
 function getComputerChoice() {
-  let computerChoice;
-
+  let choice;
   // Generate random numbers from 0 to 2
-  computerChoice = Math.floor((Math.random() * 10) / 3);
+  choice = Math.floor((Math.random() * 10) / 3);
 
-  if (computerChoice == 0) {
+  if (choice == 0) {
     return 'rock';
-  } else if (computerChoice == 1) {
+  } else if (choice == 1) {
     return 'paper';
   } else {
     return 'scissors';
-  }
-}
-
-// GET human choice
-function getHumanChoice() {
-  let humanChoice;
-
-  // Prompt user for his choice
-  humanChoice = prompt('Select your choice: rock, paper, scissors?');
-  // make human choice case insensitive
-  humanChoice = humanChoice.toLowerCase();
-
-  if (
-    humanChoice == 'rock' ||
-    humanChoice == 'paper' ||
-    humanChoice == 'scissors'
-  ) {
-    return humanChoice;
-  } else {
-    console.log('Did not select appropriate choice!');
   }
 }
 
@@ -68,25 +47,16 @@ function playRound(humanChoice, computerChoice) {
   console.log('Your Score: ', humanScore, 'Computer: ', computerScore);
 }
 
-// GENERATE scores for 5-round game
-function playGame() {
-  // for(i=0; i<5; i++) {
-  //     playRound(getHumanChoice(),getComputerChoice());
-  // }
-  playRound(getHumanChoice(), getComputerChoice());
-}
-
 let humanScore = 0;
 let computerScore = 0;
 
-playGame();
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const container = document.querySelector('#container');
 
-// SHOW who won
-if (humanScore > computerScore) {
-  console.log('Congratulations! You are the winner.');
-} else if (humanScore < computerScore) {
-  console.log('You Lost! Better Luck Next Time.');
-} else {
-  console.log("It's a Draw!");
-}
-console.log('Final score:', humanScore, computerScore);
+rock.addEventListener('click', () => playRound('rock', getComputerChoice()));
+paper.addEventListener('click', () => playRound('paper', getComputerChoice()));
+scissors.addEventListener('click', () =>
+  playRound('scissors', getComputerChoice())
+);
